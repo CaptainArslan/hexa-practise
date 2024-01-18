@@ -12,24 +12,26 @@ class MediaController extends Controller
     {
         if ($request->hasFile('profile')) {
             $file = $request->file('profile');
-            $folder = uniqid() . '-' . now()->timestamp;
+            $folder = uniqid().'-'.now()->timestamp;
 
             $path = Storage::put($folder, $file, 'public');
 
             TempFile::create([
                 'folder' => $folder,
                 'filename' => $this->getFileName($path),
-                'path' => $path
+                'path' => $path,
             ]);
 
             return $folder;
         }
+
         return false;
     }
 
     private function getFileName($path)
     {
         $path = explode('/', $path);
+
         return end($path);
     }
 
@@ -41,6 +43,7 @@ class MediaController extends Controller
             Storage::deleteDirectory($tempFile->folder);
             $tempFile->delete();
         }
+
         return true;
     }
 }
