@@ -18,9 +18,19 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- FilePond CSS -->
     <link href="https://unpkg.com/filepond@4.30.0/dist/filepond.min.css" rel="stylesheet" />
+
+    <!-- Sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- latest jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="{{ asset('js/my-custom.js') }}"></script>
 </head>
 
 <body class="font-sans antialiased">
+    <script>
+        loadingStart('Please wait...');
+    </script>
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
 
@@ -40,6 +50,9 @@
     <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
     <script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
     @yield('scripts')
+    <script>
+        loadingStop()
+    </script>
 
 </body>
 
