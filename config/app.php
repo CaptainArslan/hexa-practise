@@ -15,6 +15,9 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+
+    'firebase_server_key' => env('FIREBASE_SERVER_KEY', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

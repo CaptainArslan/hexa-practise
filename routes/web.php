@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -23,5 +24,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
 });
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/save-device-token', [HomeController::class, 'saveToken'])->name('save.device.token');
+Route::post('/send-push-notification', [HomeController::class, 'sendNotification'])->name('send.push.notification');
 
 require __DIR__ . '/auth.php';

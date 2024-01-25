@@ -51,7 +51,7 @@
     <script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
     @yield('scripts')
     <script>
-        loadingStop()
+        loadingStop();
     </script>
 
 </body>
